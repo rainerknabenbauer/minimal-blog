@@ -6,6 +6,10 @@ export const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
+    function login() {
+        console.log("Added information: " + server + " . " + username + " . " + password)
+    }
+
     return (
         <div>
             <Container maxWidth={"xs"}>
@@ -20,7 +24,7 @@ export const Login = () => {
                         value={server}
                         fullWidth
                         onChange={e => setServer(e.target.value)}
-                        helperText={!server ? 'Log in to MongoDB Cloud and check Connect.' : ''}
+                        helperText={'Log in to MongoDB Cloud and check Connect.'}
                     />
                     <TextField
                         id="filled-basic"
@@ -29,7 +33,7 @@ export const Login = () => {
                         value={username}
                         fullWidth
                         onChange={e => setUsername(e.target.value)}
-                        helperText={!server ? 'User you specified when creating your database.' : ''}
+                        helperText={'User you specified when creating your database.'}
                     />
                     <TextField
                         id="filled-basic"
@@ -39,11 +43,11 @@ export const Login = () => {
                         fullWidth
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-                        helperText={!server ? 'Password you specified when creating your database.' : ''}
+                        helperText={'Password you specified when creating your database.'}
                     />
                 </Stack>
                 <Box sx={{pt: 2, pb: 3}}>
-                    <Button variant="outlined">Log in</Button>
+                    <Button variant="outlined" onClick={() => login()}>Log in</Button>
                 </Box>
             </Container>
         </div>
