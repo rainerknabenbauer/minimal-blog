@@ -1,5 +1,6 @@
 import './App.css';
-import {Blog} from "./pages/blog/Blog";
+import {CreateBlogView} from "./pages/blog/CreateBlogView";
+import {BlogView} from "./pages/blog/BlogView";
 import {Typography} from "@mui/material";
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
     <div className="App">
         <Typography variant="h1">Publog</Typography>
 
-        <Blog/>
+        <BlogView type="recent"/>
+        <CreateBlogView/>
 
         <Typography variant="h4">How does it work?</Typography>
         <Typography sx={{pt: 1}} variant="body2">

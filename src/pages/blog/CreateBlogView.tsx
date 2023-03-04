@@ -3,11 +3,12 @@ import React, {useState} from 'react'
 import {createBlogEntry} from './api'
 import CreateBlogEntryCmd from "./type/CreateBlogEntryCmd";
 
-export const Blog = () => {
+export const CreateBlogView = () => {
     const [email, setEmail] = useState('')
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [isSubmitted, setIsSubmitted] = React.useState(false);
+    const textFieldVariant = "filled"
 
     async function submit() {
         let success = await createBlogEntry(new CreateBlogEntryCmd(email, title, content))
@@ -24,7 +25,7 @@ export const Blog = () => {
                     <TextField
                         id="email"
                         label="Your eMail"
-                        variant="filled"
+                        variant={textFieldVariant}
                         fullWidth
                         onChange={e => setEmail(e.target.value)}
                         helperText={'Required to edit and delete.'}
@@ -33,7 +34,7 @@ export const Blog = () => {
                     <TextField
                         id="title"
                         label="Title"
-                        variant="filled"
+                        variant={textFieldVariant}
                         fullWidth
                         onChange={e => setTitle(e.target.value)}
                         required
@@ -41,7 +42,7 @@ export const Blog = () => {
                     <TextField
                         id="content"
                         label="Content"
-                        variant="filled"
+                        variant={textFieldVariant}
                         fullWidth
                         value={content}
                         onChange={e => setContent(e.target.value)}
